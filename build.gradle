@@ -1,0 +1,46 @@
+buildscript {
+    ext.kotlin_version = '1.2.41'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'org.jetbrains.kotlin', name: 'kotlin-gradle-plugin', version: kotlin_version
+    }
+}
+
+group 'io.github.ranolp.gitto'
+version '0.1.0-SNAPSHOT'
+
+apply plugin: 'kotlin'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: kotlin_version
+
+    implementation group: 'org.funktionale', name: 'funktionale-all', version: '1.2'
+
+    implementation group: 'io.github.kotlin-multiplatforms', name: 'kotlog', version: '1.0.0'
+
+    implementation group: 'com.natpryce', name: 'konfig', version: '1.6.7.0'
+
+    implementation 'com.github.kittinunf.fuel:fuel:1.13.0'
+    implementation group: 'com.github.salomonbrys.kotson', name: 'kotson', version: '2.5.0'
+
+    testImplementation group: 'org.jetbrains.kotlin', name: 'kotlin-test-common', version: kotlin_version
+    testImplementation group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: kotlin_version
+    testImplementation group: 'org.jetbrains.kotlin', name: 'kotlin-test-annotations-common', version: kotlin_version
+
+    testImplementation group: 'io.mockk', name: 'mockk', version: '1.8.1'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = '1.8'
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = '1.8'
+}
